@@ -3,13 +3,13 @@ using UnityEngine;
 public class LaserLogic : MonoBehaviour
 {
     [SerializeField] int laserSpeed;
-
     float timeSinceSpawned = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     // Update is called once per frame
@@ -20,5 +20,11 @@ public class LaserLogic : MonoBehaviour
         timeSinceSpawned += Time.deltaTime;
         if (timeSinceSpawned > 1)
             Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(collision.gameObject);
+        Destroy(gameObject);
     }
 }

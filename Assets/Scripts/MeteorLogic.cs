@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class MeteorLogic : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] float meteorSpeed;
+    private void Update()
     {
-        
+        transform.Translate(Vector3.down * meteorSpeed * Time.deltaTime);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Destroy(collision.gameObject);
+        Destroy(gameObject);
     }
 }
