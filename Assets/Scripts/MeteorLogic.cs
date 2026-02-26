@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class MeteorLogic : MonoBehaviour
 {
     [SerializeField] float meteorSpeed;

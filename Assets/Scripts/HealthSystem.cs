@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-
 public class HealthSystem : MonoBehaviour
 {
     private float health = 5;

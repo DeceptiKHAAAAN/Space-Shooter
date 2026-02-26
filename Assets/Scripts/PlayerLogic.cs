@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-
 public class PlayerLogic : MonoBehaviour
 {
     [SerializeField] GameObject playerLaser;
@@ -14,6 +13,7 @@ public class PlayerLogic : MonoBehaviour
     private float timeSinceLastShot = 0;
     [SerializeField] float timeBetweenShots = 1;
 
+    [SerializeField] GameObject gameManager;
     void Start() 
     {
         finalMoveSpeed = moveSpeed;
@@ -42,7 +42,8 @@ public class PlayerLogic : MonoBehaviour
         if (collision.gameObject.tag == "Meteor")
         {
             Destroy(collision.gameObject);
-            playerHealth.DecreaseHealth();
+            if (gameManager.GetComponent<GameManagerScript>().GameOverValue == false)
+                playerHealth.DecreaseHealth();
             if (playerHealth.Health <= 0)
             {
                 Destroy(gameObject);

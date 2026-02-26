@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class LaserLogic : MonoBehaviour
 {
     [SerializeField] int laserSpeed;

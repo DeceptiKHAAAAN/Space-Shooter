@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class MeteorSpawner : MonoBehaviour
 {
     [SerializeField] GameObject meteor;

@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
-
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] GameObject gameOverPanel;
@@ -20,6 +19,7 @@ public class GameManagerScript : MonoBehaviour
         scoreText.text = "Score: " + score;
         gameOverPanel.SetActive(gameOver);
         playerShip.GetComponent<PlayerLogic>().enabled = !gameOver;
+        playerShip.GetComponent<HealthSystem>().enabled = !gameOver;
     }
     public static void IncreaseScore()
     {
@@ -28,6 +28,11 @@ public class GameManagerScript : MonoBehaviour
     public static void GameOver()
     {
         gameOver = true;
+    }
+    public bool GameOverValue
+    {
+        get { return gameOver; }
+        set { gameOver = value; }
     }
     public void ResetScene()
     {
