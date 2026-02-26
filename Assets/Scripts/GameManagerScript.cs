@@ -14,6 +14,7 @@ public class GameManagerScript : MonoBehaviour
         gameOver = false;
         score = 0;
     }
+    // Updates the score and checks for gameOver conditions
     private void Update()
     {
         scoreText.text = "Score: " + score;
@@ -21,23 +22,29 @@ public class GameManagerScript : MonoBehaviour
         playerShip.GetComponent<PlayerLogic>().enabled = !gameOver;
         playerShip.GetComponent<HealthSystem>().enabled = !gameOver;
     }
+    // Increases Score
     public static void IncreaseScore()
-    {
+    { 
         score++;
+        
     }
-    public static void GameOver()
-    {
-        gameOver = true;
+    // Makes gameOver true;
+    public static void GameOver() 
+    { 
+        gameOver = true; 
     }
+    // Allows other scripts to get gameOver value
     public bool GameOverValue
-    {
-        get { return gameOver; }
-        set { gameOver = value; }
+    { 
+        get { return gameOver;  }
+        private set { gameOver = value; } 
     }
-    public void ResetScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    // Resets the game
+    public void ResetScene() 
+    { 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
+    // Quits application or stops editor application
     public void EndGame()
     {
 #if UNITY_EDITOR
