@@ -27,4 +27,5 @@ public class LaserLogic : MonoBehaviour
         Destroy(collision.gameObject);
         Destroy(gameObject);
     }
+
 }

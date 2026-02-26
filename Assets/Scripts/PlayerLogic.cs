@@ -4,8 +4,8 @@ public class PlayerLogic : MonoBehaviour
 {
     [SerializeField] GameObject playerLaser;
     [SerializeField] float moveSpeed = 1;
-    float finalMoveSpeed;
-    float timeSinceLastShot = 0;
+    private float finalMoveSpeed;
+    private float timeSinceLastShot = 0;
     [SerializeField] float timeBetweenShots = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() 

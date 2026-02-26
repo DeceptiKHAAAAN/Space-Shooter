@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6622871776842394395}
   - component: {fileID: -8313273405804380935}
   - component: {fileID: 3461494867289575541}
+  - component: {fileID: 3979735890718937928}
   m_Layer: 0
   m_Name: PlayerLaser
   m_TagString: Untagged
@@ -106,7 +107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   laserSpeed: 10
-  playerShip: {fileID: 0}
 --- !u!61 &3461494867289575541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,3 +153,30 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.34, y: 0.013056636}
   m_EdgeRadius: 0
+--- !u!50 &3979735890718937928
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491480680331195793}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
