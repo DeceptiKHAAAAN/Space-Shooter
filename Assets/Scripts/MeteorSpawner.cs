@@ -9,6 +9,9 @@ public class MeteorSpawner : MonoBehaviour
         if (timeSinceLastSpawned > timeBetweenSpawns)
             SpawnMeteor();
         timeSinceLastSpawned += Time.deltaTime;
+        timeBetweenSpawns -= Time.deltaTime * 0.01f;
+        if (timeBetweenSpawns < 0.5f)
+            timeBetweenSpawns = 0.5f;
     }
     private void SpawnMeteor()
     {

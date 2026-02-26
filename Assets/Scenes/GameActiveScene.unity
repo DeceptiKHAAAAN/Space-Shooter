@@ -2055,6 +2055,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6832022084531580194, guid: d6011d8e60de22a4a93d6ca7e4d4dde9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1905937593}
+    - target: {fileID: 6832022084531580194, guid: d6011d8e60de22a4a93d6ca7e4d4dde9, type: 3}
       propertyPath: playerLaser
       value: 
       objectReference: {fileID: 491480680331195793, guid: abdab9a78450539409797afe78156875, type: 3}
