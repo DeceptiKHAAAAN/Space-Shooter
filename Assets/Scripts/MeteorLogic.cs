@@ -25,6 +25,7 @@ public class MeteorLogic : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             GameManagerScript.GameOver();
+            Destroy(gameObject);
         }
     }
 }

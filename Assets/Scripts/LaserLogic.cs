@@ -11,7 +11,6 @@ public class LaserLogic : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -30,10 +29,4 @@ public class LaserLogic : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    GameManagerScript.increaseScore();
-    //    Destroy(collision.gameObject);
-    //    Destroy(gameObject);
-    //}
 }

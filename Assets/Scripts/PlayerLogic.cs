@@ -9,19 +9,15 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] float moveSpeed = 1;
     private float finalMoveSpeed;
 
+    [SerializeField] HealthSystem playerHealth;
     
     private float timeSinceLastShot = 0;
     [SerializeField] float timeBetweenShots = 1;
 
-    HealthSystem playerHealth;
     void Start() 
     {
-        meteor = GameObject.FindGameObjectWithTag("Meteor");
-        playerHealth = FindFirstObjectByType<HealthSystem>();
         finalMoveSpeed = moveSpeed;
     }
-
-    // Update is called once per frame
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -33,21 +29,31 @@ public class PlayerLogic : MonoBehaviour
             SpawnLaser();
         timeSinceLastShot += Time.deltaTime;
     }
-
     public void SpawnLaser()
     {
         timeSinceLastShot = 0;
         Vector3 position = transform.position;
         Instantiate(playerLaser, position, Quaternion.identity);
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        finalMoveSpeed = 1;
+        if (collision.gameObject.tag == "Wall")
+            finalMoveSpeed = 1;
+        if (collision.gameObject.tag == "Meteor")
+        {
+            Destroy(collision.gameObject);
+            playerHealth.DecreaseHealth();
+            if (playerHealth.Health <= 0)
+            {
+                Destroy(gameObject);
+                GameManagerScript.GameOver();
+            }
+        }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
-        finalMoveSpeed = moveSpeed;
+        if (collision.gameObject.tag == "Wall")
+            finalMoveSpeed = moveSpeed;
+
     }
 }

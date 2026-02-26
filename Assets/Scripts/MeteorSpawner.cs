@@ -11,7 +11,6 @@ public class MeteorSpawner : MonoBehaviour
             SpawnMeteor();
         timeSinceLastSpawned += Time.deltaTime;
     }
-
     private void SpawnMeteor()
     {
         timeSinceLastSpawned = 0;
