@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MeteorLogic : MonoBehaviour
 {
@@ -18,5 +19,12 @@ public class MeteorLogic : MonoBehaviour
     {
         transform.Translate(Vector3.down * meteorSpeed * Time.deltaTime, Space.World);
         transform.Rotate(new Vector3(0, 0, degreesPerSecond) * Time.deltaTime * rotateDirection);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            GameManagerScript.GameOver();
+        }
     }
 }

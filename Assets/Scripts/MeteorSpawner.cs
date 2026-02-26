@@ -5,13 +5,6 @@ public class MeteorSpawner : MonoBehaviour
     [SerializeField] GameObject meteor;
     [SerializeField] float timeBetweenSpawns = 0;
     private float timeSinceLastSpawned = 0;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (timeSinceLastSpawned > timeBetweenSpawns)

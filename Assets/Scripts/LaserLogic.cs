@@ -21,11 +21,19 @@ public class LaserLogic : MonoBehaviour
         if (timeSinceSpawned > 1)
             Destroy(gameObject);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Meteor")
+        {
+            GameManagerScript.IncreaseScore();
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
-
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    GameManagerScript.increaseScore();
+    //    Destroy(collision.gameObject);
+    //    Destroy(gameObject);
+    //}
 }

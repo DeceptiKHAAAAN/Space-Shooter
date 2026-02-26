@@ -1,15 +1,23 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerLogic : MonoBehaviour
 {
     [SerializeField] GameObject playerLaser;
+    GameObject meteor;
+
     [SerializeField] float moveSpeed = 1;
     private float finalMoveSpeed;
+
+    
     private float timeSinceLastShot = 0;
     [SerializeField] float timeBetweenShots = 1;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    HealthSystem playerHealth;
     void Start() 
     {
+        meteor = GameObject.FindGameObjectWithTag("Meteor");
+        playerHealth = FindFirstObjectByType<HealthSystem>();
         finalMoveSpeed = moveSpeed;
     }
 
